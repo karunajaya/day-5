@@ -1,0 +1,74 @@
+4.write a class  to calculate the uber price
+
+class UberCalculator {
+  constructor(baseFare, costPerMile, costPerMinute) {
+    this.baseFare = baseFare;
+    this.costPerMile = costPerMile;
+    this.costPerMinute = costPerMinute;
+  }
+
+  calculatePrice(distance, duration) {
+    const distanceCost = distance * this.costPerMile;
+    const durationCost = duration * this.costPerMinute;
+    const totalFare = this.baseFare + distanceCost + durationCost;
+
+    return totalFare;
+  }
+}
+
+// Example usage:
+const uberXCalculator = new UberCalculator(5.0, 1.5, 0.2); // Example values, not actual Uber prices
+
+const distanceTraveled = 10; // in miles
+const tripDuration = 15; // in minutes
+
+const totalPrice = uberXCalculator.calculatePrice(distanceTraveled, tripDuration);
+
+console.log(`UberX Total Price: $${totalPrice.toFixed(2)}`);
+
+3.write a "person" class to hold  all the details 
+
+class Person {
+  constructor(firstName, lastName, age, email, address) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.email = email;
+    this.address = address;
+  }
+
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  getContactDetails() {
+    return `Email: ${this.email}\nAddress: ${this.address}`;
+  }
+
+  updateAddress(newAddress) {
+    this.address = newAddress;
+  }
+}
+
+// Example usage:
+const person = new Person(
+  'John',
+  'Doe',
+  30,
+  'john.doe@example.com',
+  '123 Main Street, Cityville, State, 12345'
+);
+
+console.log(person.getFullName()); // Output: John Doe
+console.log(person.age); // Output: 30
+
+console.log(person.getContactDetails());
+// Output:
+// Email: john.doe@example.com
+// Address: 123 Main Street, Cityville, State, 12345
+
+person.updateAddress('456 Elm Street, Townsville, State, 54321');
+console.log(person.getContactDetails());
+// Output:
+// Email: john.doe@example.com
+// Address: 456 Elm Street, Townsville, State, 54321
